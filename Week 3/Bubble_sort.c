@@ -2,14 +2,19 @@
 
 int main(void)
 {
+    int swap;
     int condition = 0;
     int j = 0;
     int store;
-    const int n = 8;
-    int numbers[] = {1, 0, 7, 5, 6, 2, 4, 3};
+    const int n = 3;
+    int numbers[] = {1, 2, 3};
 
     for (int k = 0; k < n - 1; k++)
     {
+        if (k == 0)
+        {
+            swap = 0;
+        }
         for (int i = 0; i < n - 1; i++)
         {
             if (numbers[i] > numbers[i + 1])
@@ -17,9 +22,16 @@ int main(void)
                 store = numbers[i];
                 numbers[i] = numbers[i + 1];
                 numbers[i + 1] = store;
+                swap = 1;
             }
         }
+        if (swap == 0)
+        {
+            printf("Numbers are already in ascending order.");
+            return 0;
+        }
     }
+
     /* Check if the values are in ascending order*/
     while (numbers[j] < numbers[j + 1])
     {
